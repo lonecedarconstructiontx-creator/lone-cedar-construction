@@ -208,6 +208,7 @@ h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 16px; }
   object-fit: cover;
   z-index: 0;
 }
+.hero-video-mobile { display: none; }
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -473,10 +474,11 @@ footer {
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 56.25vw;
+    min-height: 177.78vw;
     padding-top: 0;
   }
-  .hero-video {
+  .hero-video-desktop { display: none; }
+  .hero-video-mobile {
     display: block;
     object-fit: cover;
   }
