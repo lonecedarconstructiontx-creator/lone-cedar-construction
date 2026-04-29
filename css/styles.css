@@ -473,10 +473,12 @@ footer {
 
 @media (max-width: 768px) {
   .hero {
-    background: url('../images/hero-home.png') center/cover no-repeat;
+    min-height: 56.25vw;
+    padding-top: 0;
   }
   .hero-video {
-    display: none;
+    display: block;
+    object-fit: cover;
   }
   .nav {
     display: none;
