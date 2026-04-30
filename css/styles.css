@@ -519,7 +519,7 @@ footer {
     min-width: unset;
   }
   .dropdown-menu a { padding: 10px 14px; }
-  .nav-cta { display: none; }
+  .nav-cta { display: none !important; }
   .menu-toggle { display: flex; }
   .header-phone { display: none; }
   .services-grid { grid-template-columns: 1fr; }
