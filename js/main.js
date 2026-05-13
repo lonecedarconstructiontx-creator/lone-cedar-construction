@@ -46,9 +46,30 @@ document.querySelectorAll('.service-card, .about-text, .about-brands, .contact-i
 // Form submission
 document.getElementById('estimate-form').addEventListener('submit', (e) => {
   e.preventDefault();
-  const btn = e.target.querySelector('button[type="submit"]');
-  btn.textContent = "Sent! We'll be in touch.";
-  btn.style.background = '#4a6741';
-  btn.style.color = '#fff';
+  const form = e.target;
+  const btn  = form.querySelector('button[type="submit"]');
+  btn.textContent = 'Sending…';
   btn.disabled = true;
+
+  fetch('https://formspree.io/f/mjgldgyn', {
+    method:  'POST',
+    body:    new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(function (res) {
+    if (res.ok) {
+      btn.textContent = "Sent! We'll be in touch.";
+      btn.style.background = '#4a6741';
+      form.reset();
+    } else {
+      btn.textContent = 'Something went wrong — please call us.';
+      btn.style.background = '#7a2e2e';
+      btn.disabled = false;
+    }
+  })
+  .catch(function () {
+    btn.textContent = 'Something went wrong — please call us.';
+    btn.style.background = '#7a2e2e';
+    btn.disabled = false;
+  });
 });
